@@ -1,5 +1,3 @@
-# Th-ven
-First website
 <!DOCTYPE html>
 <html>
 <head>
