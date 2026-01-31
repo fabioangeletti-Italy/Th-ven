@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>First website</title>
+  <title>Théven per gli appassionati di circuiti elettrici</title>
 </head>
 <body>
   <h1>Ciao!</h1>
