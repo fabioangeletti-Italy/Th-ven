@@ -6,6 +6,6 @@
 </head>
 <body>
   <h1>Ciao!</h1>
-  <p>Questo è il mio primo sito web.</p>
+  <p>Questo è il mio secondo sito web.</p>
 </body>
 </html>
