@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Théven per gli appassionati di circuiti elettrici</title>
+  <title>Théven: per gli appassionati di circuiti elettrici</title>
 </head>
 <body>
   <h1>Ciao!</h1>
