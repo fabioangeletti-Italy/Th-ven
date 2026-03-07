@@ -22,7 +22,7 @@
     <p>
 This is my second website, <span id="versionText"></span> Edition
 </p>
-
+<p id="bibleVerse" style="opacity:0; transition: opacity 2s ease;"></p>
     <h2>Let's share:</h2>
     <form action="https://formspree.io/f/mbdyvzqa" method="POST">
         <label>
@@ -39,12 +39,38 @@ This is my second website, <span id="versionText"></span> Edition
     <script>
 
 const versionWords = [
-"Eighteenth","Nineteenth","Twentieth","Twenty-first","Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth","Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth","Thirty-first","Thirty-second","Thirty-third","Thirty-fourth","Thirty-fifth","Thirty-sixth","Thirty-seventh","Thirty-eighth","Thirty-ninth","Fortieth","Forty-first","Forty-second","Forty-third","Forty-fourth","Forty-fifth","Forty-sixth","Forty-seventh","Forty-eighth","Forty-ninth","Fiftieth"
+"Nineteenth","Twentieth","Twenty-first","Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth","Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth","Thirty-first","Thirty-second","Thirty-third","Thirty-fourth","Thirty-fifth","Thirty-sixth","Thirty-seventh","Thirty-eighth","Thirty-ninth","Fortieth","Forty-first","Forty-second","Forty-third","Forty-fourth","Forty-fifth","Forty-sixth","Forty-seventh","Forty-eighth","Forty-ninth","Fiftieth"
 ];
 
 document.getElementById("versionText").textContent =
 versionWords[0];
 
 </script>
+    <script>
+
+// La tua lista personale di versi preferiti R2 inglese
+const myBibleVerses = [
+"John 8:12 — I am the light of the world",
+"Psalm 23:1 — The Lord is my shepherd",
+"Philippians 4:13 — I can do all things through Christ who strengthens me",
+"Proverbs 3:5 — Trust in the Lord with all your heart"
+];
+
+// Funzione per scegliere un verso a caso
+function getRandomVerse(verses) {
+    return verses[Math.floor(Math.random() * verses.length)];
+}
+
+// Mostra il verso casuale
+const verseBox = document.getElementById("bibleVerse");
+verseBox.textContent = getRandomVerse(myBibleVerses);
+
+// Piccolo effetto fade-in
+setTimeout(()=>{
+    verseBox.style.opacity = 1;
+},300);
+
+</script>
+
 </body>
 </html>
