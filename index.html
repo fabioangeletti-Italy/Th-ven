@@ -24,24 +24,18 @@
         <span id="versionText"></span> Edition
     </p>
     <h2>Let's share:</h2>
-   <form action="https://formspree.io/f/mbdyvzqa" method="POST">
-    <input type="text" name="_honey" style="display:none">
-    <label for="message">Message:</label>
-    <br>
-    <textarea id="message" name="message" required></textarea>
-    <br><br>
-    <label for="email">Email:</label>
-    <input id="email" type="email" name="email">
-    <br><br>
+  <form action="https://formspree.io/f/mbdyvzqa" method="POST">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="text" name="message" placeholder="Message" required>
+    <input type="email" name="email" placeholder="Email">
     <button type="submit">Send</button>
 </form>
 <script>
-const form = document.querySelector("form");
-form.addEventListener("submit", function(e) {
-    const message = document.getElementById("message").value.trim();
-    if (!message) {
+document.querySelector("form").addEventListener("submit", function(e) {
+    const message = document.getElementById("message");
+    if (!message.value || message.value.length < 3) {
         e.preventDefault();
-        alert("Per favore, scrivi un messaggio valido.");
+        alert("Messaggio troppo corto o vuoto.");
     }
 });
 </script>
