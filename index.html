@@ -1,103 +1,94 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Théven</title>
-    <style>
-        body {
-            background-image: url("https://cdn.phototourl.com/uploads/2026-01-31-31eab6ed-14f7-4c2a-af8b-ae1cc5042e22.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<title>Théven</title>
+<style>
+body{
+    background-image:url("https://cdn.phototourl.com/uploads/2026-01-31-31eab6ed-14f7-4c2a-af8b-ae1cc5042e22.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+h1,h2,p{
+    margin-bottom:18px;
+}
+.counter{
+    width:100%;
+    max-width:400px;
+    text-align:left;
+    margin-bottom:20px;
+}
+form{
+    background:rgba(0,0,0,0.6);
+    padding:25px;
+    border-radius:18px;
+    width:100%;
+    max-width:400px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.5);
+    backdrop-filter:blur(8px);
+}
 
-        h1, h2, p {
-            margin-bottom: 15px;
-        }
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:12px;
+    border:2px solid transparent;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+}
+input:focus,textarea:focus{
+    border:2px solid #4da6ff;
+    transform:scale(1.02);
+}
+textarea{
+    resize:none;
+}
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+    background:#1e90ff;
+    color:white;
+    transition:0.3s;
+}
 
-        #versionText {
-            font-weight: bold;
-        }
-
-        form {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 15px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-
-        form textarea, form input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        form textarea {
-            resize: none;
-        }
-
-        form button {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
-            font-size: 15px;
-            cursor: pointer;
-            background-color: #1e90ff;
-            color: white;
-            transition: background-color 0.3s;
-        }
-
-        form button:hover {
-            background-color: #63b3ff;
-        }
-
-        img {
-            margin-bottom: 20px;
-        }
-    </style>
+button:hover{
+    background:#63b3ff;
+    transform:translateY(-2px);
+}
+</style>
 </head>
 <body>
-    <img src="https://hits.sh/fabioangeletti-italy.github.io/Th-ven.svg?style=flat-square&label=views&color=blue" alt="contatore visite">
-    
-    <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
-    
-    <p>This is my second website, <span id="versionText"></span> Edition</p>
-    
-    <h2>Let's share:</h2>
-    
-    <form action="https://formspree.io/f/mbdyvzqa" method="POST">
-        <textarea id="message" name="message" required rows="4" placeholder="Message"></textarea>
-        <input id="email" type="email" name="email" placeholder="Email">
-        <button type="submit">Send</button>
-    </form>
-
-    <p id="bibleVerse"></p>
-
-    <script>
-        const versionWords = [
-           "Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth",
-            "Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth",
-            "Thirty-first","Thirty-second","Thirty-third","Thirty-fourth","Thirty-fifth",
-            "Thirty-sixth","Thirty-seventh","Thirty-eighth","Thirty-ninth","Fortieth",
-            "Forty-first","Forty-second","Forty-third","Forty-fourth","Forty-fifth",
-            "Forty-sixth","Forty-seventh","Forty-eighth","Forty-ninth","Fiftieth"
-        ];
-        document.getElementById("versionText").textContent = versionWords[0];
-    </script>
-    <script src="script.js"></script>
+<div class="counter">
+<img src="https://hits.sh/fabioangeletti-italy.github.io/Th-ven.svg?style=flat-square&label=views&color=blue">
+</div>
+<h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
+<p>This is my second website, <span id="versionText"></span> Edition</p>
+<h2>Let's share:</h2>
+<form action="https://formspree.io/f/mbdyvzqa" method="POST">
+<textarea name="message" required rows="4" placeholder="Message"></textarea>
+<input type="email" name="email" placeholder="Email">
+<button type="submit">Send</button>
+</form>
+<script>
+const versionWords=[
+"Twenty-first","Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth",
+"Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
+];
+document.getElementById("versionText").textContent=versionWords[0];
+</script>
 </body>
 </html>
