@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <title>Théven</title>
-
     <style>
         body {
             background-image: url("https://cdn.phototourl.com/uploads/2026-01-31-31eab6ed-14f7-4c2a-af8b-ae1cc5042e22.jpg");
@@ -15,11 +13,8 @@
             color: white;
         }
     </style>
-
 </head>
-
 <body>
-
     <img src="https://hits.sh/fabioangeletti-italy.github.io/Th-ven.svg?style=flat-square&label=views&color=blue" alt="contatore visite">
     <h1>
         Welcome, I am Théven and I have a passion for electrical circuits
@@ -40,16 +35,40 @@
         <button type="submit">Send</button>
     </form>
 <script>
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function(e) {
-        const message = document.getElementById("message").value.trim();
-        if (message.length === 0) {
-            e.preventDefault();
-            alert("Per favore, scrivi un messaggio valido.");
-            return false;
+const form = document.querySelector("form");
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // blocca invio automatico
+    const messageBox = document.getElementById("message");
+    const emailBox = document.getElementById("email");
+    const message = messageBox.value.trim();
+    if (message.length === 0) {
+        alert("Per favore, scrivi un messaggio valido.");
+        return;
+    }
+    // crea FormData
+    const data = new FormData();
+    data.append("message", message);
+    data.append("email", emailBox.value);
+
+    // invia a Formspree
+    fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+            'Accept': 'application/json'
         }
-        document.getElementById("message").value = message;
-    });
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Messaggio inviato con successo!");
+            messageBox.value = "";
+            emailBox.value = "";
+        } else {
+            alert("C'è stato un errore, riprova.");
+        }
+    })
+    .catch(() => alert("C'è stato un errore, riprova."));
+});
 </script>
     <script>
         const versionWords = [
@@ -60,14 +79,9 @@
             "Forty-first","Forty-second","Forty-third","Forty-fourth","Forty-fifth",
             "Forty-sixth","Forty-seventh","Forty-eighth","Forty-ninth","Fiftieth"
         ];
-
         document.getElementById("versionText").textContent = versionWords[0];
     </script>
-
     <p id="bibleVerse"></p>
-
     <script src="script.js"></script>
-
 </body>
-
 </html>
