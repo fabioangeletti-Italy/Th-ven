@@ -7,21 +7,17 @@ const myBibleVerses = [
 "Philippians 4:13 I can do all things through Christ who strengthens me",
 "Proverbs 3:5 Trust in the Lord with all your heart"
 ];
-
 function getNaturalSpeed(char){
     if(char === "." || char === "!" || char === "?") return 700;
     if(char === "," || char === "—") return 400;
     return 40 + Math.random() * 50;
 }
-
 function maybeBackspace(){
     return Math.random() < 0.05;
 }
-
 function typeHuman(element, text, callback){
     element.textContent = "";
     let index = 0;
-
     function typeNext(){
         if(index < text.length){
             element.textContent += text[index];
@@ -35,28 +31,25 @@ function typeHuman(element, text, callback){
                 index++;
                 setTimeout(typeNext, getNaturalSpeed(text[index-1]));
             }
-
         } else {
             setTimeout(callback, 10000);
         }
     }
-
     typeNext();
 }
-
 function showVerse(){
     const verseBox = document.getElementById("bibleVerse");
     if(!verseBox) return;
-
     const randomVerse =
     myBibleVerses[Math.floor(Math.random()*myBibleVerses.length)];
-
     verseBox.style.opacity = "1";
-
+    // Tempo visibilità intelligente in base alla lunghezza del versetto
+    let readingTime = randomVerse.length * 70;
+    if(readingTime < 8000) readingTime = 8000;
+    if(readingTime > 20000) readingTime = 20000;
     typeHuman(verseBox, randomVerse, ()=>{
         verseBox.style.opacity = "0";
-        setTimeout(showVerse,15000);
+        setTimeout(showVerse, readingTime);
     });
 }
-
 window.onload = ()=> showVerse();
