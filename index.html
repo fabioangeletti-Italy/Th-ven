@@ -24,10 +24,18 @@ h1,h2,p{
     position:fixed;
     bottom:15px;
     right:15px;
-    backdrop-filter: blur(8px);
-    padding:8px 12px;
-    border-radius:12px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.12);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(22px) saturate(200%);
+    -webkit-backdrop-filter:blur(22px) saturate(200%);
+    padding:12px 18px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+    transition:0.3s;
+}
+.version:hover{
+    background:rgba(255,255,255,0.14);
+    transform:translateY(-2px);
 }
 .counter{
     position:fixed;
@@ -120,7 +128,7 @@ button:hover{
 </form>
 <script>
 const versionWords=[
-"Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
+"Twenty-fifth","Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent=versionWords[0];
 </script>
