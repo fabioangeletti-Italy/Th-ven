@@ -34,7 +34,7 @@ function typeHuman(element, text, callback){
             }
 
         } else {
-            setTimeout(callback, 15000);
+            setTimeout(callback, 10000);
         }
     }
 
