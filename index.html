@@ -21,10 +21,22 @@ h1,h2,p{
     margin-bottom:18px;
 }
 .counter{
-    width:100%;
-    max-width:400px;
-    text-align:left;
-    margin-bottom:20px;
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:999;
+    background: rgba(0,0,0,0.4); /* sfondo trasparente scuro */
+    backdrop-filter: blur(8px);   /* effetto vetro sfocato */
+    padding:8px 12px;
+    border-radius:12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+.counter img{
+    vertical-align:middle;
+}
+.counter:hover{
+    transform: scale(1.05); /* piccolo effetto al passaggio del mouse */
 }
 form{
     background:rgba(0,0,0,0.6);
@@ -35,7 +47,6 @@ form{
     box-shadow:0 8px 30px rgba(0,0,0,0.5);
     backdrop-filter:blur(8px);
 }
-
 input,textarea{
     width:100%;
     padding:12px;
@@ -84,7 +95,7 @@ button:hover{
 </form>
 <script>
 const versionWords=[
-"Twenty-first","Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth",
+"Twenty-third","Twenty-fourth","Twenty-fifth",
 "Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent=versionWords[0];
