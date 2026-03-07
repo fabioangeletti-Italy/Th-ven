@@ -73,27 +73,31 @@ form{
     transform:translateY(-4px);
     backdrop-filter:blur(20px) saturate(200%);
 }
-/* Input stilizzati */
-input,textarea{
+/* Input e textarea premium glass */
+input, textarea{
     width:100%;
     padding:14px;
     margin-bottom:15px;
     border-radius:14px;
-    border:1px solid rgba(255,255,255,0.2);
+    border:1px solid rgba(255,255,255,0.18);
     font-size:15px;
     outline:none;
     background:rgba(255,255,255,0.08);
     color:white;
     transition:0.3s;
+    backdrop-filter:blur(12px) saturate(160%);
+    resize:none;
 }
 input::placeholder,
 textarea::placeholder{
     color:rgba(255,255,255,0.7);
 }
-input:focus,textarea:focus{
+input:focus,
+textarea:focus{
     border:1px solid #63b3ff;
+    background:rgba(255,255,255,0.18);
     transform:scale(1.02);
-    background:rgba(255,255,255,0.15);
+    box-shadow:0 4px 20px rgba(99,179,255,0.35);
 }
 /* Bottone */
 button{
@@ -128,7 +132,7 @@ button:hover{
 </form>
 <script>
 const versionWords=[
-"Twenty-fifth","Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
+"twenty-fourth","Twenty-fifth","Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent=versionWords[0];
 </script>
