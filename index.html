@@ -24,7 +24,10 @@ h1,h2,p{
     position:fixed;
     bottom:15px;
     right:15px;
-    background: rgba(0,0,0,0.4);
+   form{
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(12px);
+}
     backdrop-filter: blur(8px);
     padding:8px 12px;
     border-radius:12px;
@@ -48,46 +51,62 @@ h1,h2,p{
 .counter:hover{
     transform: scale(1.05); /* piccolo effetto al passaggio del mouse */
 }
+/* ===== FORM ULTRA MODERNO ===== */
 form{
-    background:rgba(0,0,0,0.6);
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px) saturate(180%);
     padding:25px;
-    border-radius:18px;
+    border-radius:22px;
     width:100%;
     max-width:400px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    backdrop-filter:blur(8px);
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.25),
+        inset 0 0 20px rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.4s;
 }
+    form:hover{
+    transform:translateY(-4px);
+    backdrop-filter:blur(20px) saturate(200%);
+}
+/* Input stilizzati */
 input,textarea{
     width:100%;
-    padding:12px;
+    padding:14px;
     margin-bottom:15px;
-    border-radius:12px;
-    border:2px solid transparent;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.2);
     font-size:15px;
     outline:none;
-    transition:0.3s;
-}
-input:focus,textarea:focus{
-    border:2px solid #4da6ff;
-    transform:scale(1.02);
-}
-textarea{
-    resize:none;
-}
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    font-size:16px;
-    cursor:pointer;
-    background:#1e90ff;
+    background:rgba(255,255,255,0.08);
     color:white;
     transition:0.3s;
 }
+input::placeholder,
+textarea::placeholder{
+    color:rgba(255,255,255,0.7);
+}
+input:focus,textarea:focus{
+    border:1px solid #63b3ff;
+    transform:scale(1.02);
+    background:rgba(255,255,255,0.15);
+}
+/* Bottone */
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#1e90ff,#63b3ff);
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
 button:hover{
-    background:#63b3ff;
-    transform:translateY(-2px);
+    transform:translateY(-2px) scale(1.02);
+    box-shadow:0 8px 25px rgba(99,179,255,0.5);
 }
 </style>
 </head>
@@ -105,7 +124,6 @@ button:hover{
 </form>
 <script>
 const versionWords=[
-"Twenty-fifth",
 "Twenty-sixth","Twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent=versionWords[0];
