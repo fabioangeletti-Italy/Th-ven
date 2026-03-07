@@ -52,7 +52,7 @@ function showVerse(){
 
     typeHuman(verseBox, randomVerse, ()=>{
         verseBox.style.opacity = "0";
-        setTimeout(showVerse,1500);
+        setTimeout(showVerse,5000);
     });
 }
 
