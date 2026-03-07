@@ -11,66 +11,82 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h2, p {
+            margin-bottom: 15px;
+        }
+
+        #versionText {
+            font-weight: bold;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        form textarea, form input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        form textarea {
+            resize: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            background-color: #1e90ff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #63b3ff;
+        }
+
+        img {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <img src="https://hits.sh/fabioangeletti-italy.github.io/Th-ven.svg?style=flat-square&label=views&color=blue" alt="contatore visite">
-    <h1>
-        Welcome, I am Théven and I have a passion for electrical circuits
-    </h1>
-    <p>
-        This is my second website,
-        <span id="versionText"></span> Edition
-    </p>
+    
+    <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
+    
+    <p>This is my second website, <span id="versionText"></span> Edition</p>
+    
     <h2>Let's share:</h2>
- <form action="https://formspree.io/f/mbdyvzqa" method="POST" style="max-width:500px;margin:auto;font-family:Arial,sans-serif;">
-    <div style="margin-bottom:18px;">
-        <label>Message:</label>
-        <textarea 
-            id="message" 
-            name="message" 
-            required 
-            rows="6"
-            style="
-                width:100%;
-                padding:12px;
-                border-radius:12px;
-                border:1px solid #ccc;
-                resize:none;
-                font-size:16px;
-            "
-        ></textarea>
-    </div>
-    <div style="margin-bottom:18px;">
-        <label>Email:</label>
-        <input 
-            id="email"
-            type="email"
-            name="email"
-            style="
-                width:100%;
-                padding:12px;
-                border-radius:12px;
-                border:1px solid #ccc;
-                font-size:16px;
-            "
-        >
-    </div>
-    <button 
-        type="submit"
-        style="
-            width:100%;
-            padding:14px;
-            border:none;
-            border-radius:12px;
-            font-size:16px;
-            cursor:pointer;
-        "
-    >
-        Send
-    </button>
-</form>
+    
+    <form action="https://formspree.io/f/mbdyvzqa" method="POST">
+        <textarea id="message" name="message" required rows="4" placeholder="Message"></textarea>
+        <input id="email" type="email" name="email" placeholder="Email">
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="bibleVerse"></p>
+
     <script>
         const versionWords = [
            "Twenty-first","Twenty-second","Twenty-third","Twenty-fourth","Twenty-fifth",
@@ -82,7 +98,6 @@
         ];
         document.getElementById("versionText").textContent = versionWords[0];
     </script>
-    <p id="bibleVerse"></p>
     <script src="script.js"></script>
 </body>
 </html>
