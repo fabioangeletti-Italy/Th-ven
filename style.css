@@ -1,9 +1,10 @@
-#bibleVerse{
+#bibleVerse{ 
     position:fixed;
     bottom:15px;
     left:15px;
-    background:rgba(0,0,0,0.55);
-    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,0.12); /* trasparente chiaro */
+    backdrop-filter:blur(18px) saturate(180%);
+    border:1px solid rgba(255,255,255,0.18);
     padding:14px 18px;
     border-radius:16px;
     color:white;
