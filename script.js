@@ -41,10 +41,13 @@ function typeHuman(element, text, callback){
 function showVerse(){
     const verseBox = document.getElementById("bibleVerse");
     if(!verseBox) return;
+
     const randomVerse = myBibleVerses[Math.floor(Math.random()*myBibleVerses.length)];
     verseBox.textContent = "";
     verseBox.classList.add("show");
+
     let index = 0;
+
     function typeNext(){
         if(index < randomVerse.length){
             verseBox.textContent += randomVerse[index];
@@ -52,12 +55,16 @@ function showVerse(){
             setTimeout(typeNext, 40 + Math.random()*40);
         }
     }
+
     typeNext();
-    // Dopo 15 secondi scompare
+
     setTimeout(()=>{
         verseBox.classList.remove("show");
-    }, 15000);
-    // Nuovo verso ogni 15 secondi
+    }, 14000);
+
+    // invece di richiamare showVerse dentro se stessa → usa un loop esterno
     setTimeout(showVerse, 15000);
+}
+
 }
 window.onload = ()=> showVerse();
