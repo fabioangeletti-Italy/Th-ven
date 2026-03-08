@@ -9,60 +9,45 @@ const myBibleVerses = [
     "Philippians 4:13 I can do all things through Christ who strengthens me",
     "Proverbs 3:5 Trust in the Lord with all your heart"
 ];
-function getNaturalSpeed(char){
-    if(char === "." || char === "!" || char === "?") return 700;
-    if(char === "," || char === "—") return 400;
+
+function getNaturalSpeed(char) {
+    if (char === "." || char === "!" || char === "?") return 600;
+    if (char === "," || char === "—") return 300;
     return 40 + Math.random() * 50;
 }
-function maybeBackspace(){
-    return Math.random() < 0.05;
-}
-function typeHuman(element, text, callback){
+
+function typeVerse(element, text, callback) {
     element.classList.add("show");
+    element.textContent = "";
     let index = 0;
-    function typeNext(){
-        if(index < text.length){
+
+    function typeNext() {
+        if (index < text.length) {
             element.textContent += text[index];
-            if(maybeBackspace() && index > 0){
-                setTimeout(()=>{
-                    element.textContent = element.textContent.slice(0,-1);
-                    setTimeout(typeNext, getNaturalSpeed(text[index]));
-                }, getNaturalSpeed(text[index]));
-            } else {
-                index++;
-                setTimeout(typeNext, getNaturalSpeed(text[index-1]));
-            }
-        } else {
-            setTimeout(callback, 10000);
-        }
-    }
-    typeNext();
-}
-function showVerse(){
-    const verseBox = document.getElementById("bibleVerse");
-    if(!verseBox) return;
-
-    const randomVerse = myBibleVerses[Math.floor(Math.random()*myBibleVerses.length)];
-    verseBox.textContent = "";
-    verseBox.classList.add("show");
-
-    let index = 0;
-
-    function typeNext(){
-        if(index < randomVerse.length){
-            verseBox.textContent += randomVerse[index];
             index++;
-            setTimeout(typeNext, 40 + Math.random()*40);
+            setTimeout(typeNext, getNaturalSpeed(text[index - 1]));
+        } else {
+            callback && callback();
         }
     }
 
     typeNext();
-
-    setTimeout(()=>{
-        verseBox.classList.remove("show");
-    }, 14000);
-
-    // invece di richiamare showVerse dentro se stessa → usa un loop esterno
-    setTimeout(showVerse, 15000);
 }
-window.onload = ()=> showVerse();
+
+function showVerseLoop() {
+    const verseBox = document.getElementById("bibleVerse");
+    if (!verseBox) return;
+
+    const randomVerse = myBibleVerses[Math.floor(Math.random() * myBibleVerses.length)];
+
+    typeVerse(verseBox, randomVerse, () => {
+        // Dopo 14 secondi, scompare
+        setTimeout(() => {
+            verseBox.classList.remove("show");
+            // Dopo 1 secondo, passa al prossimo verso
+            setTimeout(showVerseLoop, 1000);
+        }, 14000);
+    });
+}
+
+window.onload = showVerseLoop;
