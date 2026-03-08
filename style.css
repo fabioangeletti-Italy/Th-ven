@@ -1,29 +1,30 @@
-#bibleVerse{
-    position:fixed;
-    bottom:15px;
-    left:15px;
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(18px) saturate(180%);
-    border:1px solid rgba(255,255,255,0.18);
-    padding:14px 18px;
-    border-radius:16px;
-    color:white;
-    font-size:14px;
-    max-width:320px;
-    min-height:40px;
-    font-family:monospace;
-    opacity:0;
-    transition:opacity 0.8s ease;
-    white-space:pre-wrap;
-}
 #bibleVerse.show{
-    opacity:1;
+    position:relative;
+    overflow:hidden;
 }
-#bibleVerse::after{
-    content:"|";
-    animation: blink 1.2s steps(2) infinite;
-    margin-left:4px;
+
+#bibleVerse.show::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:20px;
+    height:20px;
+    background:rgba(99,179,255,0.6);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation: waveGlow 1.8s ease-out;
 }
-@keyframes blink{
-    50%{ opacity:0; }
+
+@keyframes waveGlow{
+    0%{
+        transform:translate(-50%,-50%) scale(1);
+        opacity:0.8;
+        filter:blur(4px);
+    }
+    100%{
+        transform:translate(-50%,-50%) scale(12);
+        opacity:0;
+        filter:blur(12px);
+    }
 }
