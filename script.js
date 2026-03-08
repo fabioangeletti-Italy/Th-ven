@@ -53,10 +53,10 @@ function showVerse(){
         }
     }
     typeNext();
-    // Dopo 5 secondi scompare
+    // Dopo 15 secondi scompare
     setTimeout(()=>{
         verseBox.classList.remove("show");
-    }, 5000);
+    }, 15000);
     // Nuovo verso ogni 15 secondi
     setTimeout(showVerse, 15000);
 }
