@@ -42,14 +42,22 @@ function showVerse(){
     const verseBox = document.getElementById("bibleVerse");
     if(!verseBox) return;
     const randomVerse = myBibleVerses[Math.floor(Math.random()*myBibleVerses.length)];
-    // Tempo visibilità intelligente in base alla lunghezza del versetto
-    let readingTime = randomVerse.length * 70;
-    if(readingTime < 8000) readingTime = 8000;
-    if(readingTime > 20000) readingTime = 20000;
-
-    typeHuman(verseBox, randomVerse, ()=>{
+    verseBox.textContent = "";
+    verseBox.classList.add("show");
+    let index = 0;
+    function typeNext(){
+        if(index < randomVerse.length){
+            verseBox.textContent += randomVerse[index];
+            index++;
+            setTimeout(typeNext, 40 + Math.random()*40);
+        }
+    }
+    typeNext();
+    // Dopo 5 secondi scompare
+    setTimeout(()=>{
         verseBox.classList.remove("show");
-        setTimeout(showVerse, readingTime);
-    });
+    }, 5000);
+    // Nuovo verso ogni 15 secondi
+    setTimeout(showVerse, 15000);
 }
 window.onload = ()=> showVerse();
