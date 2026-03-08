@@ -41,12 +41,12 @@ function showVerseLoop() {
     const randomVerse = myBibleVerses[Math.floor(Math.random() * myBibleVerses.length)];
 
     typeVerse(verseBox, randomVerse, () => {
-        // Dopo 14 secondi, scompare
+        // Dopo 15 secondi, scompare
         setTimeout(() => {
             verseBox.classList.remove("show");
             // Dopo 15 secondo, passa al prossimo verso
-            setTimeout(showVerseLoop, 15000);
-        }, 14000);
+            setTimeout(showVerseLoop, 30000);
+        }, 15000);
     });
 }
 
