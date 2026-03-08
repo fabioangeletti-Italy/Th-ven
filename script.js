@@ -65,6 +65,4 @@ function showVerse(){
     // invece di richiamare showVerse dentro se stessa → usa un loop esterno
     setTimeout(showVerse, 15000);
 }
-
-}
 window.onload = ()=> showVerse();
