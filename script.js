@@ -45,7 +45,7 @@ function showVerseLoop() {
         setTimeout(() => {
             verseBox.classList.remove("show");
             // Dopo 15 secondo, passa al prossimo verso
-            setTimeout(showVerseLoop, 30000);
+            setTimeout(showVerseLoop, 20000);
         }, 15000);
     });
 }
