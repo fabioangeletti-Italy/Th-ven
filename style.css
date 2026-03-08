@@ -161,6 +161,7 @@ button:hover {
     pointer-events: none;
     z-index: 9999;
     overflow: hidden;
+    text-align: right;   /* allinea il testo a destra */
 }
 #bibleVerse.show {
     opacity: 1;
