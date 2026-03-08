@@ -32,7 +32,7 @@ document.getElementById("versionText").textContent=versionWords[0];
 <script>
 async function updateOnlineUsers(){
   try{
-    await fetch('http://localhost:3000/online', {method:'POST'});
+    await fetch('http://192.168.68.108:3000/online', {method:'POST'});
     let res = await fetch('http://localhost:3000/onlineCount');
     let data = await res.json();
     document.getElementById("onlineUsers").textContent =
