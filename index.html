@@ -31,16 +31,16 @@ document.getElementById("versionText").textContent=versionWords[0];
 <script src="script.js"></script>
 <script>
 async function updateOnlineUsers(){
-try{
-let response = await fetch("https://api.countapi.xyz/hit/theven-site/visits");
-let data = await response.json();
-let online = Math.floor(Math.random()*5)+1;
-document.getElementById("onlineUsers").textContent =
-"Users online: " + online;
-}catch(e){
-document.getElementById("onlineUsers").textContent =
-"Users online: 1";
-}
+  try{
+    await fetch('http://localhost:3000/online', {method:'POST'});
+    let res = await fetch('http://localhost:3000/onlineCount');
+    let data = await res.json();
+    document.getElementById("onlineUsers").textContent =
+      "Users online: " + data.online;
+  } catch(e){
+    document.getElementById("onlineUsers").textContent =
+      "Users online: 1";
+  }
 }
 updateOnlineUsers();
 setInterval(updateOnlineUsers,10000);
