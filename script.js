@@ -49,6 +49,7 @@ function showVerse(){
     if(readingTime > 20000) readingTime = 20000;
     typeHuman(verseBox, randomVerse, ()=>{
         verseBox.classList.remove("show");
+        verseBox.classList.remove("typing");
         setTimeout(showVerse, readingTime);
     });
 }
