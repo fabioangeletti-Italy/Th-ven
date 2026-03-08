@@ -2,7 +2,6 @@
     position:relative;
     overflow:hidden;
 }
-
 #bibleVerse.show::before{
     content:"";
     position:absolute;
@@ -10,12 +9,11 @@
     left:50%;
     width:20px;
     height:20px;
-    background:rgba(99,179,255,0.6);
+    background:rgba(99,179,255,0.8);
     border-radius:50%;
     transform:translate(-50%,-50%);
-    animation: waveGlow 1.8s ease-out;
+    animation: waveGlow 2s ease-out forwards;
 }
-
 @keyframes waveGlow{
     0%{
         transform:translate(-50%,-50%) scale(1);
