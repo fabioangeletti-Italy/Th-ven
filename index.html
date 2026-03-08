@@ -42,15 +42,78 @@ h1,h2,p{
     top:15px;
     left:15px;
     z-index:999;
-    background: rgba(0,0,0,0.4); /* sfondo trasparente scuro */
-    backdrop-filter: blur(8px);   /* effetto vetro sfocato */
-    padding:8px 12px;
-    border-radius:12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    padding:14px 20px;
+    border-radius:18px;
+    box-shadow:0 0 35px rgba(99,179,255,0.35);
+    text-align:center;
+    transition: all .4s ease;
 }
-.counter img{
-    vertical-align:middle;
+.counter:hover{
+    transform: scale(1.06);
+    box-shadow:0 0 45px rgba(99,179,255,0.6);
+}
+#viewsCount,
+#onlineUsers{
+    display:block;
+    font-family:monospace;
+    font-size:16px;
+    letter-spacing:1.2px;
+    text-shadow:0 0 12px rgba(99,179,255,0.7);
+    transition: all .4s ease;
+}
+.onlineBox{
+    margin-top:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    background:#4cff4c;
+    border-radius:50%;
+    box-shadow:0 0 15px #4cff4c;
+    animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+    0%{transform:scale(1); opacity:1;}
+    50%{transform:scale(1.5); opacity:.5;}
+    100%{transform:scale(1); opacity:1;}
+}
+/* effetto respiro leggero per numeri */
+#viewsCount,
+#onlineUsers{
+    animation: breathe 2.8s ease-in-out infinite;
+}
+@keyframes breathe{
+    0%,100%{text-shadow:0 0 12px rgba(99,179,255,0.7);}
+    50%{text-shadow:0 0 20px rgba(99,179,255,1);}
+}
+#viewsCount,
+#onlineUsers{
+    display:block;
+    font-family:monospace;
+    font-size:15px;
+    letter-spacing:1px;
+    text-shadow:0 0 10px rgba(99,179,255,0.6);
+    transition:all .4s ease;
+}
+.dot{
+    width:8px;
+    height:8px;
+    background:#4cff4c;
+    border-radius:50%;
+    box-shadow:0 0 12px #4cff4c;
+    animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+    0%{transform:scale(1); opacity:1;}
+    50%{transform:scale(1.4); opacity:.5;}
+    100%{transform:scale(1); opacity:1;}
 }
 .counter:hover{
     transform: scale(1.05); /* piccolo effetto al passaggio del mouse */
@@ -158,7 +221,7 @@ button:hover{
 </form>
 <script>
 const versionWords=[
-"twenty-fifth","twenty-sixth","twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
+"twenty-sixth","twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent=versionWords[0];
 </script>
