@@ -42,7 +42,7 @@ function showVerse(){
     if(!verseBox) return;
     const randomVerse =
     myBibleVerses[Math.floor(Math.random()*myBibleVerses.length)];
-    verseBox.style.opacity = "1";
+    verseBox.classList.add("show");
     // Tempo visibilità intelligente in base alla lunghezza del versetto
     let readingTime = randomVerse.length * 70;
     if(readingTime < 8000) readingTime = 8000;
