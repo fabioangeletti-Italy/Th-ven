@@ -16,7 +16,7 @@ function maybeBackspace(){
     return Math.random() < 0.05;
 }
 function typeHuman(element, text, callback){
-    element.textContent = "";
+    element.classList.add("show");
     let index = 0;
     function typeNext(){
         if(index < text.length){
