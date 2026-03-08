@@ -48,7 +48,7 @@ function showVerse(){
     if(readingTime < 8000) readingTime = 8000;
     if(readingTime > 20000) readingTime = 20000;
     typeHuman(verseBox, randomVerse, ()=>{
-        verseBox.style.opacity = "0";
+        verseBox.classList.remove("show");
         setTimeout(showVerse, readingTime);
     });
 }
