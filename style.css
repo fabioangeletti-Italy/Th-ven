@@ -53,22 +53,29 @@ h1 {
     transform: scale(1.04);
     box-shadow: 0 0 35px rgba(99, 179, 255, 0.6);
 } 
-.status {
-  font-size: 24px; /* dimensione occhio */
+.status-top-right {
+  position: fixed; /* rimane sempre visibile */
+  top: 20px;       /* distanza dal bordo superiore */
+  right: 20px;     /* distanza dal bordo destro */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Tahoma, Arial, sans-serif;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 8px; /* spazio tra occhio e pallino */
+  gap: 8px;
+  background-color: rgba(0,0,0,0.1); /* leggero sfondo opzionale */
+  padding: 6px 12px;
+  border-radius: 8px;
 }
 .blink {
   width: 12px;
   height: 12px;
-  background-color: #0f0; /* verde acceso */
-  border-radius: 50%; /* rende il div un cerchio */
-  animation: blink 1.5s infinite; /* anima il lampeggio */
+  background-color: #0f0; /* verde */
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
 }
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; } /* scompare a metà del ciclo */
+  25%, 75% { opacity: 0; }
 }
 #viewsCount,
 #onlineUsers {
