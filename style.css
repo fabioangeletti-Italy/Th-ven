@@ -19,9 +19,9 @@ h1, h2, p {
 h1 {
     margin-top: 20px;
 } 
-h2 {
-    font-size: 32px;       /* dimensione testo */
-    margin-top: 20px;      /* distanza dal bordo superiore */
+h2.lets-share {
+    font-size: 36px;       /* testo più grande */
+    margin: 20px 0 10px 0; /* margine superiore e inferiore */
     color: white;          /* colore testo */
     text-align: left;      /* sposta a sinistra */
     padding-left: 20px;    /* piccolo margine interno a sinistra */
