@@ -13,6 +13,9 @@ body {
     letter-spacing: 0.3px;
     line-height: 1.5;
 }
+#total-count {
+    display: none;
+}
 h1, h2, p {
     margin-bottom: 18px;
 }
