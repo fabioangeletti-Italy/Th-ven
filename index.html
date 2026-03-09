@@ -6,53 +6,28 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="onlineCounter" style="
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.1);
-  color: #000;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  text-align: right;
-  line-height: 1.3em;
-">
-  <div>Online: <span id="onlineUsers">0</span></div>
-  <div>Totale visitatori: <span id="totalUsers">0</span></div>
-</div>
-
 <div class="counter">
-  <h1>Contatore utenti</h1>
-  Utenti online: <span id="onlineUsers">0</span>
+  <div>Totale: <span id="viewsCount">0</span></div>
+  <div class="onlineBox">Online: <span id="onlineUsers">0</span></div>
 </div>
-
 <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
-<p class="version">This is my second website, <span id="versionText"></span> edition</p>
-
+<p class="version">This is my second website, <span id="versionText"></span> edition</p
 <h2>Let's share:</h2>
 <form action="https://formspree.io/f/mbdyvzqa" method="POST">
   <textarea name="message" required rows="4" placeholder="Message"></textarea>
   <input type="email" name="email" placeholder="Email">
   <button type="submit">Send</button>
 </form>
-
 <div id="bibleVerse"></div>
-
 <script>
 // Versione del sito
 const versionWords = [
   "twenty-sixth","twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent = versionWords[0];
-
-// ID unico per ogni browser
-const id = localStorage.getItem("visitorId") || crypto.randomUUID();
+const id = localStorage.getItem("visitorId") || crypto.randomUUID();// ID unico per ogni browser
 localStorage.setItem("visitorId", id);
-
-// Funzione per aggiornare il contatore
-async function updateOnlineUsers(){
+async function updateOnlineUsers(){ // Funzione per aggiornare il contatore
   try{
     await fetch('http://localhost:3000/online', {
       method:'POST',
@@ -68,12 +43,9 @@ async function updateOnlineUsers(){
       "Users online: 1";
   }
 }
-
-// Aggiorna subito e poi ogni 10 secondi
-updateOnlineUsers();
+updateOnlineUsers(); // Aggiorna subito e poi ogni 10 secondi
 setInterval(updateOnlineUsers,10000);
 </script>
-
 <script src="script.js"></script>
 </body>
 </html>
