@@ -18,6 +18,13 @@ h1, h2, p {
 }
 h1 {
     margin-top: 20px;
+} 
+h2 {
+    font-size: 32px;       /* dimensione testo */
+    margin-top: 20px;      /* distanza dal bordo superiore */
+    color: white;          /* colore testo */
+    text-align: left;      /* sposta a sinistra */
+    padding-left: 20px;    /* piccolo margine interno a sinistra */
 }
 .version { /* ===== VERSION ===== */
     position: fixed;
