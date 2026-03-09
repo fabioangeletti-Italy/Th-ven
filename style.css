@@ -52,6 +52,23 @@ h1 {
 .counter:hover {
     transform: scale(1.04);
     box-shadow: 0 0 35px rgba(99, 179, 255, 0.6);
+} 
+.status {
+  font-size: 24px; /* dimensione occhio */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* spazio tra occhio e pallino */
+}
+.blink {
+  width: 12px;
+  height: 12px;
+  background-color: #0f0; /* verde acceso */
+  border-radius: 50%; /* rende il div un cerchio */
+  animation: blink 1.5s infinite; /* anima il lampeggio */
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; } /* scompare a metà del ciclo */
 }
 #viewsCount,
 #onlineUsers {
