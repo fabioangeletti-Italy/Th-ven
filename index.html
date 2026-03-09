@@ -6,44 +6,58 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="counter">
-<img src="https://hits.sh/fabioangeletti-italy.github.io/Th-ven.svg?style=flat-square&label=views&color=blue">
-<div class="onlineBox">
-<span class="dot"></span>
-<span id="onlineUsers">Users online: loading...</span>
+  <h1>Contatore utenti</h1>
+  Utenti online: <span id="onlineUsers">0</span>
 </div>
-</div>
-<h1>  Welcome, I am Théven and I have a passion for electrical circuits</h1>
+
+<h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
 <p class="version">This is my second website, <span id="versionText"></span> edition</p>
+
 <h2>Let's share:</h2>
 <form action="https://formspree.io/f/mbdyvzqa" method="POST">
-<textarea name="message" required rows="4" placeholder="Message"></textarea>
-<input type="email" name="email" placeholder="Email">
-<button type="submit">Send</button>
+  <textarea name="message" required rows="4" placeholder="Message"></textarea>
+  <input type="email" name="email" placeholder="Email">
+  <button type="submit">Send</button>
 </form>
-<script>
-const versionWords=[
-"twenty-sixth","twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
-];
-document.getElementById("versionText").textContent=versionWords[0];
-</script>
+
 <div id="bibleVerse"></div>
-<script src="script.js"></script>
+
 <script>
+// Versione del sito
+const versionWords = [
+  "twenty-sixth","twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
+];
+document.getElementById("versionText").textContent = versionWords[0];
+
+// ID unico per ogni browser
+const id = localStorage.getItem("visitorId") || crypto.randomUUID();
+localStorage.setItem("visitorId", id);
+
+// Funzione per aggiornare il contatore
 async function updateOnlineUsers(){
   try{
-    await fetch('http://192.168.68.108:3000/online', {method:'POST'});
-    let res = await fetch('http://192.168.68.108:3000/onlineCount');
+    await fetch('http://localhost:3000/online', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({id})
+    });
+    let res = await fetch('http://localhost:3000/count');
     let data = await res.json();
     document.getElementById("onlineUsers").textContent =
-      "Users online: " + data.online;
+      "Users online: " + data.count;
   } catch(e){
     document.getElementById("onlineUsers").textContent =
       "Users online: 1";
   }
 }
+
+// Aggiorna subito e poi ogni 10 secondi
 updateOnlineUsers();
 setInterval(updateOnlineUsers,10000);
 </script>
+
+<script src="script.js"></script>
 </body>
 </html>
