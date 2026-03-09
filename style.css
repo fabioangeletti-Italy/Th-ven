@@ -41,21 +41,18 @@ h1 {
     top: 10px;
     left: 10px;  
     z-index: 999;
-
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(12px);
-
     padding: 8px 12px;   /* più piccolo */
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(99, 179, 255, 0.35);
-    text-align: center;
+    text-align: left;
     transition: all 0.4s ease;
 }
 .counter:hover {
     transform: scale(1.04);
     box-shadow: 0 0 35px rgba(99, 179, 255, 0.6);
 }
-
 #viewsCount,
 #onlineUsers {
     display: block;
@@ -78,7 +75,6 @@ h1 {
     gap: 5px;
     font-size: 11px;  /* prima 13px */
 }
-
 .dot {
     width: 8px;
     height: 8px;
@@ -108,7 +104,6 @@ form {
     flex-direction: column;
     gap: 15px; /* spazio uniforme tra tutti gli elementi */
 }
-
 form input,
 form textarea,
 form button {
@@ -123,12 +118,10 @@ form button {
     color: white;
     transition: 0.3s;
 }
-
 form input::placeholder,
 form textarea::placeholder {
     color: rgba(255,255,255,0.7);
 }
-
 form input:focus,
 form textarea:focus {
     border: 1px solid #63b3ff;
@@ -136,7 +129,6 @@ form textarea:focus {
     transform: scale(1.02);
     box-shadow: 0 4px 20px rgba(99, 179, 255, 0.35);
 }
-
 form button {
     cursor: pointer;
     font-weight: bold;
@@ -148,7 +140,6 @@ form button {
     font-size: 16px;
     transition: 0.3s;
 }
-
 form button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 25px rgba(99, 179, 255, 0.5);
