@@ -14,7 +14,7 @@ body {
     line-height: 1.5;
 }
 #total-count {
-    display: none;
+    visibility: hidden;
 }
 h1, h2, p {
     margin-bottom: 18px;
