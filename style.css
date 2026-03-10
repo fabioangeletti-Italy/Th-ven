@@ -197,6 +197,21 @@ form button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 25px rgba(99, 179, 255, 0.5);
 }
+/* WRAPPER E H2 SOPRA IL FORM */
+.form-wrapper {
+    width: 400px;          /* stessa larghezza del form */
+    margin: 0 auto;        /* centra tutto il blocco nella pagina */
+}
+.form-wrapper h2 {
+    font-size: 25px;       /* dimensione del testo */
+    margin-bottom: 8px;    /* spazio tra titolo e form */
+    text-align: left;      /* testo allineato a sinistra */
+    padding-left: 14px;    /* stesso padding del campo messaggi */
+    color: white;
+}
+.form-wrapper form {
+    width: 100%;           /* occupa tutta la larghezza del wrapper */
+}
 #bibleVerse {
     position: fixed;
     bottom: 20px;
