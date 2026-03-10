@@ -199,18 +199,20 @@ form button:hover {
 }
 /* WRAPPER E H2 SOPRA IL FORM */
 .form-wrapper {
-    width: 400px;          /* stessa larghezza del form */
-    margin: 0 auto;        /* centra tutto il blocco nella pagina */
+    width: 90%;           /* prende quasi tutta la larghezza dello schermo */
+    max-width: 400px;     /* ma non supera i 400px su schermi grandi */
+    margin: 0 auto;       /* centra il blocco */
 }
 .form-wrapper h2 {
-    font-size: 25px;       /* dimensione del testo */
-    margin-bottom: 8px;    /* spazio tra titolo e form */
-    text-align: left;      /* testo allineato a sinistra */
-    padding-left: 14px;    /* stesso padding del campo messaggi */
+    font-size: 5vw;       /* dimensione testo proporzionale alla larghezza dello schermo */
+    max-font-size: 25px;  /* massima dimensione */
+    margin-bottom: 8px;
+    text-align: left;
+    padding-left: 3%;     /* allinea col bordo interno del form in modo proporzionale */
     color: white;
 }
 .form-wrapper form {
-    width: 100%;           /* occupa tutta la larghezza del wrapper */
+    width: 100%;
 }
 #bibleVerse {
     position: fixed;
