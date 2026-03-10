@@ -278,3 +278,10 @@ form button:hover {
 #totalSessions .eyeball {
     color: #bbb;   /* occhio grigio chiaro */
 }
+@keyframes blinkEyeball {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+#totalSessions .eyeball.blink {
+  animation: blinkEyeball 0.6s ease-in-out 1;
+}
