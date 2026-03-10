@@ -43,3 +43,17 @@ function showVerseLoop() {
     });
 }
 window.onload = showVerseLoop;
+// Recupera contatore da localStorage oppure inizializza a 1000
+let sessionCount = localStorage.getItem("sessionCount");
+if (!sessionCount) {
+    sessionCount = 1000;
+} else {
+    sessionCount = parseInt(sessionCount);
+}
+
+// Incrementa di 1 ad ogni visita
+sessionCount++;
+localStorage.setItem("sessionCount", sessionCount);
+
+// Mostra il contatore nel div
+document.getElementById("totalCount").textContent = sessionCount;
