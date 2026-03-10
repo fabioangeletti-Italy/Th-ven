@@ -50,10 +50,13 @@ if (!sessionCount) {
 } else {
     sessionCount = parseInt(sessionCount);
 }
-
 // Incrementa di 1 ad ogni visita
 sessionCount++;
+const eyeball = document.querySelector("#totalSessions .eyeball");
+eyeball.classList.add("blink");
+setTimeout(() => {
+    eyeball.classList.remove("blink");
+}, 600);
 localStorage.setItem("sessionCount", sessionCount);
-
 // Mostra il contatore nel div
 document.getElementById("totalCount").textContent = sessionCount;
