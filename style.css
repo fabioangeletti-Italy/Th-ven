@@ -26,6 +26,7 @@ h2 {
 font-size: 35px !important;
 margin-top: 10px;
 width: 100px;
+align-self: flex-start; /* forza il box a partire da sinistra */
 text-align: left;
 }
 .version { /* ===== VERSION ===== */
