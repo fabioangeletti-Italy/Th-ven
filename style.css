@@ -23,11 +23,14 @@ h1 {
     margin-top: 20px;
 } 
 h2 {
-font-size: 25px !important;
-margin-top: 10px;
-width: 400px;
-align-self: flex-start; /* forza il box a partire da sinistra */
-text-align: left;
+    font-size: 25px !important;
+    margin-top: 10px;
+    width: 100%;            /* stesso blocco del form */
+    max-width: 400px;       /* stessa larghezza massima del form */
+    align-self: flex-start;  /* forza il box a partire da sinistra */
+    text-align: left;
+    padding-left: 14px;      /* stesso padding interno dei campi */
+    color: white;
 }
 .version { /* ===== VERSION ===== */
     position: fixed;
