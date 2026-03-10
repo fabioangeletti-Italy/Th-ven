@@ -258,3 +258,23 @@ form button:hover {
         filter: blur(12px);
     }
 }
+#totalSessions {
+    position: fixed;
+    top: 20px;
+    left: 20px;                  
+    background: rgba(0,0,0,0.6);
+    color: #63b3ff;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 13px;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(99, 179, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 5px;                    
+}
+
+#totalSessions .eyeball {
+    color: #bbb;   /* occhio grigio chiaro */
+}
