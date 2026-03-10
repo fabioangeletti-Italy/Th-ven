@@ -9,18 +9,15 @@ const myBibleVerses = [
     "Philippians 4:13 I can do all things through Christ who strengthens me",
     "Proverbs 3:5 Trust in the Lord with all your heart"
 ];
-
 function getNaturalSpeed(char) {
     if (char === "." || char === "!" || char === "?") return 600;
     if (char === "," || char === "—") return 300;
     return 40 + Math.random() * 50;
 }
-
 function typeVerse(element, text, callback) {
     element.classList.add("show");
     element.textContent = "";
     let index = 0;
-
     function typeNext() {
         if (index < text.length) {
             element.textContent += text[index];
@@ -30,16 +27,12 @@ function typeVerse(element, text, callback) {
             callback && callback();
         }
     }
-
     typeNext();
 }
-
 function showVerseLoop() {
     const verseBox = document.getElementById("bibleVerse");
     if (!verseBox) return;
-
     const randomVerse = myBibleVerses[Math.floor(Math.random() * myBibleVerses.length)];
-
     typeVerse(verseBox, randomVerse, () => {
         // Dopo 15 secondi, scompare
         setTimeout(() => {
@@ -49,5 +42,4 @@ function showVerseLoop() {
         }, 15000);
     });
 }
-
 window.onload = showVerseLoop;
