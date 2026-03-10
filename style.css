@@ -283,5 +283,5 @@ form button:hover {
   50% { opacity: 0.4; }
 }
 #totalSessions .eyeball.blink {
-  animation: blinkEyeball 0.6s ease-in-out 1;
+  animation: blinkEyeball 1.2s ease-in-out 1;
 }
