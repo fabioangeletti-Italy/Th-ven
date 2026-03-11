@@ -285,9 +285,14 @@ form button:hover {
 #totalSessions .eyeball.blink {
   animation: blinkEyeball 2s ease-in-out 1;
 }
-.eyeball {
-  color: gray;      /* colore grigio dell'occhio */
-  font-size: 24px;  /* dimensione */
-  margin-right: 5px;
-  vertical-align: middle;
+#totalSessions .eyeball {
+    color: gray;      /* occhio grigio */
+    font-size: 24px;  /* dimensione */
+    margin-right: 5px;
+    vertical-align: middle;
+    animation: blinkEyeball 2s ease-in-out infinite;
+}
+@keyframes blinkEyeball {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
