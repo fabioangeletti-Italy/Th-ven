@@ -6,13 +6,16 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div id="totalSessions">
     Views: <span id="totalCount">0</span>
 </div>
-  <script>
-const SERVER_URL = "https://online-counter-server.onrender.com"; // sostituisci con il tuo URL pubblico Render
+
+<script>
+const SERVER_URL = "https://online-counter-server.onrender.com"; // URL pubblico del tuo server Render
 const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
 localStorage.setItem("visitorId", visitorId);
+
 async function updateGlobalViews() {
   try {
     // invia l'ID del visitatore al server
@@ -21,6 +24,7 @@ async function updateGlobalViews() {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({id: visitorId})
     });
+
     // prendi il totale aggiornato
     const res = await fetch(`${SERVER_URL}/total`);
     const data = await res.json();
@@ -30,13 +34,15 @@ async function updateGlobalViews() {
     document.getElementById("totalCount").textContent = 2000;
   }
 }
+
 // aggiorna subito e poi ogni 10 secondi
 updateGlobalViews();
 setInterval(updateGlobalViews, 10000);
 </script>
+
 <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
 <p class="version">This is my second website, <span id="versionText"></span> edition</p>
-<!-- Wrapper per allineare titolo e form -->
+
 <div class="form-wrapper">
     <h2>Let's share</h2>
     <form action="https://formspree.io/f/mbdyvzqa" method="POST">
@@ -45,36 +51,16 @@ setInterval(updateGlobalViews, 10000);
         <button type="submit">Send</button>
     </form>
 </div>
+
 <div id="bibleVerse"></div>
+
 <script>
-const versionWords = [ // Versione del sito
+const versionWords = [
   "twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent = versionWords[0];
-<script>
-const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
-localStorage.setItem("visitorId", visitorId);
-async function updateGlobalViews() {
-  try {
-    // manda la visita al server
-    await fetch('http://localhost:3000/online', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({id: visitorId})
-    });
-    // prendi il numero totale aggiornato
-    const res = await fetch('http://localhost:3000/total');
-    const data = await res.json();
-    document.getElementById("totalCount").textContent = data.total;
-  } catch(err) {
-    console.log("Server non raggiungibile, mostro 2000");
-    document.getElementById("totalCount").textContent = 2000;
-  }
-}
-// aggiorna subito e poi ogni 2 secondi
-updateGlobalViews();
-setInterval(updateGlobalViews, 2000);
 </script>
+
 <script src="script.js"></script>
 </body>
-</html
+</html>
