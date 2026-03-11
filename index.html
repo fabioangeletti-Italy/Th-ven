@@ -52,17 +52,24 @@ setInterval(updateOnlineUsers,10000);
 </body>
 </html>
 <script>
-async function updateGlobalCounter() {
+  async function updateGlobalCounter() {
   try {
-    // Colleghiamo a CountAPI con un namespace unico
-    const response = await fetch("https://api.countapi.xyz/hit/theven-gh/visits");
-    const data = await response.json();
-    document.getElementById("totalCount").textContent = data.value;
-  } catch (err) {
-    console.log("Errore contatore globale, mostro 2000");
+    // invia il POST al tuo server per aggiornare il contatore
+    await fetch('http://localhost:3000/online', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({id})
+    });
+    // leggi il totale aggiornato dal server
+    let res = await fetch('http://localhost:3000/total');
+    let data = await res.json();
+    document.getElementById("totalCount").textContent = data.total;
+  } catch(err) {
+    console.log("Server non raggiungibile, mostro 2000");
     document.getElementById("totalCount").textContent = 2000;
   }
 }
-// Aggiorna subito
+// aggiorna subito e poi ogni 10 secondi
 updateGlobalCounter();
+setInterval(updateGlobalCounter, 10000);
 </script>
