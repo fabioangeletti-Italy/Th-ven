@@ -61,3 +61,4 @@ eyeball.classList.add("blink");
 setTimeout(() => {
     eyeball.classList.remove("blink");
 }, 600);
+document.getElementById("localCount").textContent = sessionCount;
