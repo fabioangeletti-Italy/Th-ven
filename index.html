@@ -16,13 +16,13 @@ localStorage.setItem("visitorId", visitorId);
 async function updateGlobalViews() {
   try {
     // invia l'ID del visitatore al server
-    await fetch(`${https://online-counter-server.onrender.com}/online`, {
+    await fetch({https://online-counter-server.onrender.com}/online`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({id: visitorId})
     });
     // prendi il totale aggiornato
-    const res = await fetch(`${https://online-counter-server.onrender.com}/total`);
+    const res = await fetch({https://online-counter-server.onrender.com}/total`);
     const data = await res.json();
     document.getElementById("totalCount").textContent = data.total;
   } catch(err) {
