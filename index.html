@@ -31,18 +31,25 @@ const SERVER_URL = "https://online-counter-server.onrender.com";
 const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
 localStorage.setItem("visitorId", visitorId);
 async function updateGlobalViews() {
+  const totalCountEl = document.getElementById("totalCount");
   try {
-    await fetch(`${SERVER_URL}/online`, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({id: visitorId})
-    });
+    // Registra la visita solo se c'è un visitorId
+    if (visitorId) {
+      await fetch(`${SERVER_URL}/online`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: visitorId })
+      });
+    }
+    // Recupera il conteggio globale dal server
     const res = await fetch(`${SERVER_URL}/total`);
+    if (!res.ok) throw new Error('Risposta del server non OK');
     const data = await res.json();
-    document.getElementById("totalCount").textContent = data.total;
-  } catch(err) {
-    console.log("Server non raggiungibile, mostro 2000");
-    document.getElementById("totalCount").textContent = 2000;
+    // Aggiorna il contatore globale sulla pagina
+    totalCountEl.textContent = data.total ?? 0;
+  } catch (err) {
+    console.error("Server non raggiungibile, mostro 2000", err);
+    totalCountEl.textContent = 2000;
   }
 }
 // Aggiorna solo una volta al caricamento della pagina
