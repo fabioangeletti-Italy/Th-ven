@@ -9,35 +9,6 @@
 <div id="totalSessions">
     Views: <span id="totalCount">0</span>
 </div>
-<script>
-const SERVER_URL = "https://online-counter-server.onrender.com"; // URL pubblico del tuo server Render
-const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
-localStorage.setItem("visitorId", visitorId);
-
-async function updateGlobalViews() {
-  try {
-    // invia l'ID del visitatore al server
-    await fetch(`${SERVER_URL}/online`, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({id: visitorId})
-    });
-
-    // prendi il totale aggiornato
-    const res = await fetch(`${SERVER_URL}/total`);
-    const data = await res.json();
-    document.getElementById("totalCount").textContent = data.total;
-  } catch(err) {
-    console.log("Server non raggiungibile, mostro 2000");
-    document.getElementById("totalCount").textContent = 2000;
-  }
-}
-
-// aggiorna subito e poi ogni 10 secondi
-updateGlobalViews();
-setInterval(updateGlobalViews, 10000);
-</script>
-
 <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
 <p class="version">This is my second website, <span id="versionText"></span> edition</p>
 <div class="form-wrapper">
@@ -55,6 +26,30 @@ const versionWords = [
 ];
 document.getElementById("versionText").textContent = versionWords[0];
 </script>
-<script src="script.js"></script>
+<script>
+const SERVER_URL = "https://online-counter-server.onrender.com"; // metti qui il tuo URL Render
+const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
+localStorage.setItem("visitorId", visitorId);
+async function updateGlobalViews() {
+  try {
+    // invia l'ID del visitatore al server
+    await fetch(`${SERVER_URL}/online`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({id: visitorId})
+    });
+    // prendi il totale aggiornato
+    const res = await fetch(`${SERVER_URL}/total`);
+    const data = await res.json();
+    document.getElementById("totalCount").textContent = data.total;
+  } catch(err) {
+    console.log("Server non raggiungibile, mostro 2000");
+    document.getElementById("totalCount").textContent = 2000;
+  }
+}
+// aggiorna subito e poi ogni 10 secondi
+updateGlobalViews();
+setInterval(updateGlobalViews, 10000);
+</script>
 </body>
 </html>
