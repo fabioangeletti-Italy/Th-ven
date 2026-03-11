@@ -7,7 +7,6 @@
 </head>
 <body>
 <div id="totalSessions">
-    Local Sessions: <span id="localCount">0</span> <br>
     Global Views: <span id="totalCount">0</span>
 </div>
 <h1>Welcome, I am Théven and I have a passion for electrical circuits</h1>
@@ -28,18 +27,16 @@ const versionWords = [
 document.getElementById("versionText").textContent = versionWords[0];
 </script>
 <script>
-const SERVER_URL = "https://online-counter-server.onrender.com"; // metti qui il tuo URL Render
+const SERVER_URL = "https://online-counter-server.onrender.com"; 
 const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
 localStorage.setItem("visitorId", visitorId);
 async function updateGlobalViews() {
   try {
-    // invia l'ID del visitatore al server
     await fetch(`${SERVER_URL}/online`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({id: visitorId})
     });
-    // prendi il totale aggiornato
     const res = await fetch(`${SERVER_URL}/total`);
     const data = await res.json();
     document.getElementById("totalCount").textContent = data.total;
@@ -48,9 +45,9 @@ async function updateGlobalViews() {
     document.getElementById("totalCount").textContent = 2000;
   }
 }
-// aggiorna subito e poi ogni 10 secondi
+// Aggiorna solo una volta al caricamento della pagina
 updateGlobalViews();
-    </script>
+</script>
 <script src="script.js"></script>
 </body>
 </html>
