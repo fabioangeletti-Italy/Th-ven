@@ -229,7 +229,7 @@ form button:hover {
     pointer-events: none;
     z-index: 9999;
     overflow: hidden;
-    text-align: right;   /* allinea il testo a destra */
+    text-align: right;
 }
 #bibleVerse.show {
     opacity: 1;
