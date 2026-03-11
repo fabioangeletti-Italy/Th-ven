@@ -26,26 +26,29 @@ const versionWords = [ // Versione del sito
   "twenty-seventh","Twenty-eighth","Twenty-ninth","Thirtieth"
 ];
 document.getElementById("versionText").textContent = versionWords[0];
-const id = localStorage.getItem("visitorId") || crypto.randomUUID();// ID unico per ogni browser
-localStorage.setItem("visitorId", id);
-async function updateOnlineUsers(){ // Funzione per aggiornare il contatore
-  try{
+<script>
+const visitorId = localStorage.getItem("visitorId") || crypto.randomUUID();
+localStorage.setItem("visitorId", visitorId);
+async function updateGlobalViews() {
+  try {
+    // manda la visita al server
     await fetch('http://localhost:3000/online', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({id})
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({id: visitorId})
     });
-    let res = await fetch('http://localhost:3000/count');
-    let data = await res.json();
-    document.getElementById("onlineUsers").textContent =
-      "Users online: " + data.count;
-  } catch(e){
-    document.getElementById("onlineUsers").textContent =
-      "Users online: 1";
+    // prendi il numero totale aggiornato
+    const res = await fetch('http://localhost:3000/total');
+    const data = await res.json();
+    document.getElementById("totalCount").textContent = data.total;
+  } catch(err) {
+    console.log("Server non raggiungibile, mostro 2000");
+    document.getElementById("totalCount").textContent = 2000;
   }
 }
-updateOnlineUsers(); // Aggiorna subito e poi ogni 10 secondi
-setInterval(updateOnlineUsers,10000);
+// aggiorna subito e poi ogni 10 secondi
+updateGlobalViews();
+setInterval(updateGlobalViews, 10000);
 </script>
 <script src="script.js"></script>
 </body>
